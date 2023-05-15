@@ -1,0 +1,10 @@
+version: '3'
+services:
+  frontend:
+    image: bansalc73/frontend-image:latest
+    ports:
+      - '3000:3000'
+  backend:
+    image: bansalc73/backend-image:latest
+    ports:
+      - '5000:5000'
