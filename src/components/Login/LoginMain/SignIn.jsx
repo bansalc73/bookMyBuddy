@@ -23,6 +23,7 @@ const SignIn = ({ handleResponse }) => {
     }, 10000)
 
     const onSubmit = async (event) => {
+        console.log("frontend")
         dispatch({ type: "LOGIN_START" })
         try {
             const res = await axios.post(`${baseUrl}/auth/login`, event);
