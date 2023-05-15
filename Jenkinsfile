@@ -24,6 +24,12 @@ pipeline{
                 sh 'docker build -t frontend-image .'
             }
         }
+         stage('Build Backend Image') {
+            steps {
+                // Build the frontend Docker image
+                sh 'docker build -t backend-image ./api'
+            }
+        }
 
     }
   
