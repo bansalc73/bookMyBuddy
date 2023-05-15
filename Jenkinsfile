@@ -18,7 +18,15 @@ pipeline{
                 git 'https://github.com/bansalc73/bookMyBuddy'
             }
         }
+        stage('Build Frontend Image') {
+            steps {
+                // Build the frontend Docker image
+                sh 'docker build -t frontend-image .'
+            }
+        }
+
     }
+  
 
 }
 
