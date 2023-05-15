@@ -5,11 +5,12 @@ pipeline{
     //     maven 'MAVEN'
     // } 
 
-    // environment{
-    //     PATH = "/usr/local/Cellar/maven/3.9.0/libexec:${PATH}"
-    //     DOCKER_IMAGE = 'bansalc73/calc_dev_ops123:latest'
-    //     CONTAINER_NAME = 'calc_container'
-    //     PORTS = '8080:80'
+    // environment {
+        // DOCKER_USERNAME = 'bansalc73'
+        // DOCKER_PASSWORD = 'bansalc73'
+        // registryCredential = 'docker_creds'
+        // registry_backend = 'pratikahirrao/backend'
+        // registry_frontend = 'pratikahirrao/frontend'
     // }
 
     stages{
@@ -28,6 +29,22 @@ pipeline{
             steps {
                 // Build the frontend Docker image
                 sh 'docker build -t backend-image ./api'
+            }
+        }
+          stage('Push Images to DockerHub') {
+            steps {
+
+                withCredentials([usernamePassword(credentialsId: 'docker_HUb', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                    // sh 'docker tag calculator bansalc73/calc_dev_ops123:latest'
+                    sh 'docker push bansalc73/frontend-image:latest'
+                    sh 'docker push bansalc73/backend-image:latest'
+                }
+
+                // sh 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%'
+                // sh 'docker push  bansalc73/backend'
+                // sh 'docker push pratikahirrao/frontend'
+              
             }
         }
 
