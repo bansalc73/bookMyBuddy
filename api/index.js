@@ -15,7 +15,7 @@ mongoose.connection.on("disconnected", () =>{console.log("Disconnected")})
 
 const connect = async () =>{
     try{
-        mongoose.connect(process.env.MONGO,{ useNewUrlParser: true })
+        mongoose.connect(process.env.MONGO)
         console.log("Conntected to Mongodb")
     }catch(err){
         console.log(err)
