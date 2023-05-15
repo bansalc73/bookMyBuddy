@@ -8,12 +8,12 @@ import doctorRoutes from './routes/doctor.js'
 import cookieParser from 'cookie-parser';
 
 const app = express();
-const corsOptions = {
-    origin: '*',
-    credentials: true,
-    optionSuccessStatus: 200
-  }
-app.use(cors(corsOptions))
+// const corsOptions = {
+//     origin: '*',
+//     credentials: true,
+//     optionSuccessStatus: 200
+//   }
+// app.use(cors(corsOptions))
 // app.use(cors());
 const port = process.env.PORT || 5000;
 
@@ -27,6 +27,7 @@ const connect = async () =>{
         console.log(err)
     }
 }
+app.use(cors())
 app.use(cookieParser())
 dotenv.config();
 app.use(express.json())
