@@ -8,3 +8,5 @@ services:
     image: bansalc73/backend-image:latest
     ports:
       - '5000:5000'
+    environment:
+      - MONGO=mongodb+srv://chirag:chirag@cluster0.xxq7wug.mongodb.net/doctor_app?retryWrites=true&w=majority
