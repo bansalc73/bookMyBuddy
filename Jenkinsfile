@@ -36,8 +36,9 @@ pipeline{
 
                 withCredentials([usernamePassword(credentialsId: 'docker_HUb', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                    // sh 'docker tag calculator bansalc73/calc_dev_ops123:latest'
+                    sh 'docker tag frontend-image bansalc73/frontend-image:latest'
                     sh 'docker push bansalc73/frontend-image:latest'
+                    sh 'docker tag backend-image bansalc73/backend-image:latest'
                     sh 'docker push bansalc73/backend-image:latest'
                 }
 
