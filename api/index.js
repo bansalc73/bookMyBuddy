@@ -14,18 +14,18 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 mongoose.connection.on("disconnected", () =>{console.log("Disconnected")})
 
-const connect = async () =>{
-    try{
-        mongoose.connect(process.env.MONGO)
-        console.log("Conntected to Mongodb")
-    }catch(err){
-        console.log(err)
-    }
-}
+// const connect = async () =>{
+//     try{
+//         mongoose.connect(process.env.MONGO)
+//         console.log("Conntected to Mongodb")
+//     }catch(err){
+//         console.log(err)
+//     }
+// }
 app.use(cookieParser())
 dotenv.config();
 app.use(express.json())
@@ -47,4 +47,13 @@ app.use((err, req, res, next) =>{
         stack : err.stack,
     })
 })
-app.listen(process.env.PORT || port , ()=>{connect(); console.log("Started")})
+
+await mongoose
+  .connect(process.env.MONGO)
+  .then(() =>
+    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
+  )
+  .catch((error) => console.log(error));
+
+// app.listen(process.env.PORT || port , ()=>{connect(); console.log("Started")})
+export default app;
