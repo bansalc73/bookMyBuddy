@@ -6,7 +6,7 @@ metadata:
     name: fintrack-ingress
 spec:
   rules:
-    - host: my-buddy.netlify.app
+    - host: localhost
       http:
         paths:
           - path: "/"
