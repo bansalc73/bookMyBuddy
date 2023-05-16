@@ -2,11 +2,10 @@ import Users from '../models/Users.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import {createError} from '../utils/error.js'
-
-
+import logger from "../logger/logging.js"
 
 export const register = async (req, res, next)=>{
-    // logger.info('User Signup');
+    logger.info('User Signup');
     const salt =  bcrypt.genSaltSync(10);
     const hash =  bcrypt.hashSync(req.body.password, salt);
 
@@ -27,7 +26,7 @@ export const register = async (req, res, next)=>{
 export const login = async(req, res, next) =>{
 
     // console.log("login")
-    // logger.info('User Login');
+    logger.info('User Login');
     // console.log(req.body)
     try{
         const user = await Users.findOne({email: req.body.email});

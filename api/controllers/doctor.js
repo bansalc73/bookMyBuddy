@@ -2,10 +2,11 @@ import appointMentSchema from "../models/DoctorAppointMent.js";
 import OurServices from "../models/PatientsServices.js";
 import reviewSchema from "../models/ReviewsModal.js";
 import Users from "../models/Users.js";
+import logger from "../logger/logging.js"
 
 
 export const appointMentByDate = async (req, res, next) => {
-    // logger.info('User Appointment added');
+    logger.info('User Appointment added');
     // console.log("hola")
     // console.log(req.body)
     const { _id, isAdmin, isDoctor } = req.body.userdata;
