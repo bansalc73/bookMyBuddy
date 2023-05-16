@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mern-ingress
+  namespace: mern-app
   labels:
     name: fintrack-ingress
 spec:

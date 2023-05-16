@@ -34,15 +34,5 @@ spec:
             secretKeyRef:
               name: mern-backend-secret
               key: JWT
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-service
-spec:
-  selector:
-    app: backend
-  ports:
-    - name: http
-      port: 5000
-      targetPort: 5000
+
+
