@@ -14,7 +14,6 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// app.use(cors());
 const port = process.env.PORT || 5000;
 
 mongoose.connection.on("disconnected", () =>{console.log("Disconnected")})

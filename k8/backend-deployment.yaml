@@ -40,10 +40,9 @@ kind: Service
 metadata:
   name: backend-service
 spec:
-  type: LoadBalancer
   selector:
     app: backend
   ports:
-    - protocol: TCP
+    - name: http
       port: 5000
       targetPort: 5000

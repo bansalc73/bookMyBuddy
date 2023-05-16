@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: frontend-configmap
 data:
-  REACT_APP_BASE_URL: http://backend-service:5000
+  REACT_APP_BASE_URL: backend-service
