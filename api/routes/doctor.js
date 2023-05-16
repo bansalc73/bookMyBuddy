@@ -2,6 +2,7 @@ import express from 'express';
 import { AddAppointMentCollection, AppointmentPatientsList, appointMentByDate, DoctorList, IsDoctor, AddServices, ServicesList, AddReview, ReviewsList, UpdateUserInfo } from '../controllers/doctor.js';
 import { login, register, viewUser } from '../controllers/user.js';
 import { verifyAdmin, verifyToken, verifyUser } from '../utils/verifyToken.js';
+import logger from "../logger/logging.js"
 
 const router = express.Router();
 router.get("/checkauthentication",verifyToken,(req, res, next)=>{
@@ -27,6 +28,11 @@ router.get('/auth/reviews', ReviewsList);
 router.get('/auth/doctors', DoctorList);
 
 //auth
-router.post('/auth/register', register);
+// router.post('/auth/register', register);
+router.post('/auth/register', (req, res) => {
+  logger.info('Registering user'); // Log statement
+  register(req, res); // Call the register controller function
+});
+
 router.post('/auth/login', login);
 export default router;

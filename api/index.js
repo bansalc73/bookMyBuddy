@@ -6,6 +6,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import doctorRoutes from './routes/doctor.js'
 import cookieParser from 'cookie-parser';
+import logger from "./logger/logging.js";
+
+
 
 const app = express();
 app.use(cors({
@@ -34,6 +37,7 @@ app.use(express.static('doctors'));
 app.use(fileUpload());
 app.use('/', doctorRoutes)
 app.get('/', (req, res) => {
+    logger.info('Transaction Home OK');
     res.send("hello it/s running")
 })
 

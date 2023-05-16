@@ -5,6 +5,7 @@ import Users from "../models/Users.js";
 
 
 export const appointMentByDate = async (req, res, next) => {
+    // logger.info('User Appointment added');
     // console.log("hola")
     // console.log(req.body)
     const { _id, isAdmin, isDoctor } = req.body.userdata;
