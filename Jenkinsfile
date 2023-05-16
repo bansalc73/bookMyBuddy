@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        MONGO="mongodb+srv://chirag:chirag@cluster0.xxq7wug.mongodb.net/doctor_app?retryWrites=true&w=majority"
+    }
     stages{
         stage('Clone Git'){
             steps{
