@@ -6,6 +6,14 @@ pipeline{
                 git 'https://github.com/bansalc73/bookMyBuddy'
             }
         }
+        stage('Testing'){
+            steps{
+                dir('api'){
+                    sh "npm install"
+                    sh "npm test"
+                }
+            }
+        }
         stage('Build Frontend Image') {
             steps {
                 sh 'docker build -t frontend-image .'
@@ -35,17 +43,6 @@ pipeline{
                 }
             }
         }
-        //using docker compose
-        // stage('Ansible Deployment') {
-        //     steps {
-        //         script { 
-        //             sh 'ansible-playbook -i inventory playbook.yml'
-        //         }
-        //     }
-        // }
-
     }
-  
-
 }
 
