@@ -1,7 +1,7 @@
-#Book My Buddy - Therapy Session Booking and Review Platform
+<h2>**Book My Buddy - Therapy Session Booking and Review Platform**</h2>
 Book My Buddy is a web application designed to provide users with a convenient platform for booking therapy sessions, posting reviews, and managing doctor appointments. The project integrates a secure user authentication system, efficient database management, and seamless CI/CD deployment for a smooth user experience.
 
-#Key Features
+<h2>Key Features</h2>
 **User Authentication**: Book My Buddy offers a robust user authentication system, allowing users to securely sign up and log in to their accounts. Passwords are encrypted to ensure data privacy.
 
 **Therapy Session Booking**: Users can easily browse through a list of available therapy sessions and book appointments with their preferred therapists. The intuitive interface ensures a hassle-free booking process.
@@ -26,7 +26,7 @@ Book My Buddy is a web application designed to provide users with a convenient p
 
 **Logging Functionality**: The project implements logging functionality using Winston, enabling comprehensive monitoring and debugging of the application.
 
-**Installation and Usage**
+<h2>Installation and Usage</h2>
 To run the application locally, follow these steps:
 
 Clone the repository: git clone https://github.com/your-username/book-my-buddy.git
